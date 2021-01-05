@@ -13,14 +13,14 @@
             return LazyLog.Value;
         }
 
-        public void LogAsync(string message, Exception ex = null)
+        public void Log(LogType type, string message, Exception ex = null)
         {
             if (ex != null)
             {
                 message = $"{message}{ex.Message}";
             }
 
-            string log = $"{DateTime.UtcNow.ToString("hh:mm:ss")}:{message}";
+            string log = $"{DateTime.UtcNow.ToString("hh:mm:ss")}: {type} :{message}";
             Console.WriteLine(log);
         }
     }
